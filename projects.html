@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects &amp; Case Studies | Nhlamulo Gemini Hlatywayo</title>
+  <meta name="description" content="Detailed engineering projects and system architecture case studies by Nhlamulo Gemini Hlatywayo, Full-Stack Software Developer.">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+
+  <!-- Google Fonts: DM Serif Display, Playfair Display, Plus Jakarta Sans, Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <style>
+    .project-detail-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: 28px;
+      margin-bottom: 32px;
+      transition: all var(--transition-normal);
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    @media (min-width: 900px) {
+      .project-detail-card {
+        grid-template-columns: 1.1fr 1fr;
+        padding: 36px;
+      }
+    }
+
+    .project-detail-card:hover {
+      border-color: rgba(255, 0, 128, 0.45);
+      box-shadow: 0 16px 40px rgba(33, 21, 34, 0.5), var(--shadow-glow);
+    }
+
+    .project-detail-img-box {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 16 / 10;
+      background: #0f172a;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .project-detail-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--transition-normal);
+    }
+
+    .project-detail-card:hover .project-detail-img-box img {
+      transform: scale(1.03);
+    }
+
+    .project-detail-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .search-input-box {
+      position: relative;
+      max-width: 380px;
+      width: 100%;
+    }
+
+    .search-input-box svg {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      width: 18px;
+      height: 18px;
+    }
+
+    .search-input-box input {
+      padding-left: 42px;
+    }
+
+    .project-header-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 28px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 16px 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <main style="max-width: 1180px; padding-top: 24px;">
+
+    <div style="width: 100%;">
+
+      <!-- Header & Breadcrumb -->
+      <div class="page-header-banner">
+        <a href="./index.html" class="back-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          <span>Back to Main Portfolio</span>
+        </a>
+
+        <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 12px;">
+          <div>
+            <h1 class="h1">Engineering Projects &amp; System Architecture</h1>
+            <p style="color: var(--text-secondary); margin-top: 4px;">
+              Enterprise banking solutions, biometric verification platforms, high-throughput event streaming, and cybersecurity tools engineered by <strong>Nhlamulo Gemini Hlatywayo</strong>.
+            </p>
+          </div>
+          <a href="./assets/Nhlamulo CV .pdf" download="Nhlamulo Gemini Hlatywayo CV.pdf" class="btn btn-primary" target="_blank">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Download CV</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Toolbar: Category filters & real-time search -->
+      <div class="project-header-toolbar">
+        <div class="filter-list">
+          <button class="filter-btn active" data-filter-btn="all">All Projects (6)</button>
+          <button class="filter-btn" data-filter-btn="enterprise">Enterprise &amp; Banking</button>
+          <button class="filter-btn" data-filter-btn="web">Full-Stack Web</button>
+          <button class="filter-btn" data-filter-btn="cloud">Cloud &amp; Security</button>
+        </div>
+
+        <div class="search-input-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="projectSearchInput" class="form-control" placeholder="Search by tech (e.g. Kafka, Java, Azure)...">
+        </div>
+      </div>
+
+      <!-- Project List Container -->
+      <div id="projectsListContainer">
+
+        <!-- Project 1: DHA Biometrics -->
+        <article class="project-detail-card" id="dha-biometric" data-category="enterprise" data-keywords="java spring boot kotlin angular azure dha biometrics insomnia rest fnb ocep">
+          <div class="project-detail-img-box">
+            <img src="./assets/images/project-1.jpg" alt="DHA Biometric Integration Platform">
+          </div>
+          <div class="project-detail-info">
+            <div>
+              <div style="display: flex; gap: 8px; margin-bottom: 8px;">
+                <span class="badge">Enterprise Banking</span>
+                <span class="badge badge-emerald">FNB OCEP Framework</span>
+              </div>
+              <h2 class="h2">DHA Biometric Integration Platform</h2>
+              <p style="color: #cbd5e1; font-size: var(--fs-sm); line-height: 1.7; margin: 12px 0;">
+                High-availability biometric identity verification gateway connecting Department of Home Affairs (DHA) services directly into FNB's OCEP architecture. Enables real-time customer KYC verification, identity validation, and anti-fraud checks during enterprise banking onboarding.
+              </p>
+              
+              <h4 style="font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 8px;">Key Technical Highlights:</h4>
+              <ul style="font-size: var(--fs-sm); color: #94a3b8; display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px;">
+                <li>• Designed sub-second RESTful API integrations and verified endpoints in Insomnia.</li>
+                <li>• Contributed to high-availability UI/UX biometric workflows in Angular.</li>
+                <li>• Configured resilient error fallbacks and end-to-end tests across Windows, macOS, and iOS.</li>
+              </ul>
+
+              <div class="tech-tags">
+                <span class="tech-tag">Java 17</span>
+                <span class="tech-tag">Spring Boot</span>
+                <span class="tech-tag">Kotlin</span>
+                <span class="tech-tag">Angular</span>
+                <span class="tech-tag">Apache Kafka</span>
+                <span class="tech-tag">MySQL</span>
+                <span class="tech-tag">Azure</span>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 12px; margin-top: 20px;">
+              <a href="https://github.com/nhlamulo-gemini" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+                <span>Live Project Specs</span>
+              </a>
+              <a href="https://github.com/nhlamulo-gemini" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                </svg>
+                <span>GitHub Repository</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2: Banking ETS -->
+        <article class="project-detail-card" id="banking-ets" data-category="enterprise" data-keywords="kotlin java spring boot kafka mysql docker ets transactions banking streaming">
+          <div class="project-detail-img-box">
+            <img src="./assets/images/project-2.png" alt="Banking Electronic Transaction System">
+          </div>
+          <div class="project-detail-info">
+            <div>
+              <div style="display: flex; gap: 8px; margin-bottom: 8px;">
+                <span class="badge">Event Streaming</span>
+                <span class="badge badge-purple">High-Throughput</span>
+              </div>
+              <h2 class="h2">Banking Electronic Transaction System (ETS)</h2>
+              <p style="color: #cbd5e1; font-size: var(--fs-sm); line-height: 1.7; margin: 12px 0;">
+                Distributed event streaming pipeline engineered for enterprise payment processing, automated transactional reconciliation, and zero-loss financial event auditing.
+              </p>
+              
+              <h4 style="font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 8px;">Key Technical Highlights:</h4>
+              <ul style="font-size: var(--fs-sm); color: #94a3b8; display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px;">
+                <li>• Leveraged Apache Kafka consumer groups for decoupled transaction settlement.</li>
+                <li>• Tuned MySQL relational query performance and transactional isolation levels.</li>
+                <li>• Comprehensive integration testing suites in IntelliJ IDEA with Mockito &amp; JUnit.</li>
+              </ul>
+
+              <div class="tech-tags">
+                <span class="tech-tag">Kotlin</span>
+                <span class="tech-tag">Java</span>
+                <span class="tech-tag">Spring Boot</span>
+                <span class="tech-tag">Apache Kafka</span>
+                <span class="tech-tag">MySQL</span>
+                <span class="tech-tag">Docker</span>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 12px; margin-top: 20px;">
+              <a href="https://github.com/nhlamulo-gemini" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+                <span>Live Project Specs</span>
+              </a>
+              <a href="https://github.com/nhlamulo-gemini" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                </svg>
+                <span>GitHub Repository</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3: Enterprise IKMS -->
+        <article class="project-detail-card" id="enterprise-ikms" data-category="enterprise web" data-keywords="java spring boot angular typescript ikms geeks4learning fnb agile">
+          <div class="project-detail-img-box">
+            <img src="./assets/images/project-7.png" alt="Enterprise Knowledge Management System">
+          </div>
+          <div class="project-detail-info">
+            <div>
+              <div style="display: flex; gap: 8px; margin-bottom: 8px;">
+                <span class="badge">Enterprise Web</span>
+                <span class="badge badge-emerald">Geeks4learning / FNB</span>
+              </div>
+              <h2 class="h2">Enterprise Knowledge Management System (IKMS)</h2>
+              <p style="color: #cbd5e1; font-size: var(--fs-sm); line-height: 1.7; margin: 12px 0;">
+                Full-stack knowledge collaboration platform integrating the core IKMS module, supporting developer documentation, incident tracking, and internal governance processes.
+              </p>
+              
+              <h4 style="font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 8px;">Key Technical Highlights:</h4>
+              <ul style="font-size: var(--fs-sm); color: #94a3b8; display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px;">
+                <li>• Integrated core business logic workflows using Java-based enterprise practices.</li>
+                <li>• Built flexible, mobile-responsive Angular UI with component reusability.</li>
+                <li>• Streamlined bug incident tracking and managed code updates via Git &amp; Agile sprints.</li>
+              </ul>
+
+              <div class="tech-tags">
+                <span class="tech-tag">Java</span>
+                <span class="tech-tag">Spring Boot</span>
+                <span class="tech-tag">Angular</span>
+                <span class="tech-tag">TypeScript</span>
+                <span class="tech-tag">HTML5/CSS3</span>
+                <span class="tech-tag">Agile</span>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 12px; margin-top: 20px;">
+              <a href="https://github.com/nhlamulo-gemini" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+                <span>Live Project Specs</span>
+              </a>
+              <a href="https://github.com/nhlamulo-gemini" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                </svg>
+                <span>GitHub Repository</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 4: CyberGuard Security -->
+        <article class="project-detail-card" id="cyberguard-security" data-category="cloud" data-keywords="cybersecurity cisco cyberops python azure ethical hacker network protocols">
+          <div class="project-detail-img-box">
+            <img src="./assets/images/project-6.png" alt="CyberGuard Threat Intelligence">
+          </div>
+          <div class="project-detail-info">
+            <div>
+              <div style="display: flex; gap: 8px; margin-bottom: 8px;">
+                <span class="badge">Cybersecurity</span>
+                <span class="badge badge-emerald">Cisco CCNA CyberOps</span>
+              </div>
+              <h2 class="h2">CyberGuard Threat Intelligence &amp; Response</h2>
+              <p style="color: #cbd5e1; font-size: var(--fs-sm); line-height: 1.7; margin: 12px 0;">
+                Comprehensive network vulnerability monitoring and security incident logging system implementing Cisco CCNA CyberOps protocols, threat classification, and proactive defensive responses.
+              </p>
+              
+              <h4 style="font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 8px;">Key Technical Highlights:</h4>
+              <ul style="font-size: var(--fs-sm); color: #94a3b8; display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px;">
+                <li>• Risk assessments and incident analysis preventing security recurrences.</li>
+                <li>• Network packet examination and anomaly classification using Python &amp; REST APIs.</li>
+                <li>• Cloud security policies aligned with Microsoft Azure best practices.</li>
+              </ul>
+
+              <div class="tech-tags">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Microsoft Azure</span>
+                <span class="tech-tag">Cisco CyberOps</span>
+                <span class="tech-tag">Ethical Hacking</span>
+                <span class="tech-tag">Network Security</span>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 12px; margin-top: 20px;">
+              <a href="https://github.com/nhlamulo-gemini" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+                <span>Live Project Specs</span>
+              </a>
+              <a href="https://github.com/nhlamulo-gemini" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                </svg>
+                <span>GitHub Repository</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 5: FinTrack -->
+        <article class="project-detail-card" id="fintrack-analytics" data-category="web" data-keywords="angular typescript javascript css3 html5 finance personal dashboard">
+          <div class="project-detail-img-box">
+            <img src="./assets/images/project-5.png" alt="FinTrack Wealth & Expense Management">
+          </div>
+          <div class="project-detail-info">
+            <div>
+              <div style="display: flex; gap: 8px; margin-bottom: 8px;">
+                <span class="badge">Full-Stack Web</span>
+                <span class="badge badge-purple">Responsive UI</span>
+              </div>
+              <h2 class="h2">FinTrack Wealth &amp; Expense Management</h2>
+              <p style="color: #cbd5e1; font-size: var(--fs-sm); line-height: 1.7; margin: 12px 0;">
+                Feature-rich personal finance analytics dashboard enabling real-time budget forecasting, interactive spending charts, and multi-wallet balance consolidation.
+              </p>
+              
+              <h4 style="font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 8px;">Key Technical Highlights:</h4>
+              <ul style="font-size: var(--fs-sm); color: #94a3b8; display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px;">
+                <li>• Highly responsive interface optimized for mobile and desktop screens.</li>
+                <li>• Modular TypeScript state architecture with real-time UI data bindings.</li>
+                <li>• Interactive charts and visual transaction breakdown categories.</li>
+              </ul>
+
+              <div class="tech-tags">
+                <span class="tech-tag">Angular</span>
+                <span class="tech-tag">TypeScript</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">CSS3</span>
+                <span class="tech-tag">REST APIs</span>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 12px; margin-top: 20px;">
+              <a href="https://github.com/nhlamulo-gemini" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+                <span>Live Project Specs</span>
+              </a>
+              <a href="https://github.com/nhlamulo-gemini" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                </svg>
+                <span>GitHub Repository</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 6: Azure Microservices -->
+        <article class="project-detail-card" id="azure-microservices" data-category="cloud" data-keywords="c# asp.net core azure postman insomnia docker microservices">
+          <div class="project-detail-img-box">
+            <img src="./assets/images/project-8.jpg" alt="Azure Cloud Microservices Orchestrator">
+          </div>
+          <div class="project-detail-info">
+            <div>
+              <div style="display: flex; gap: 8px; margin-bottom: 8px;">
+                <span class="badge">Cloud Ecosystem</span>
+                <span class="badge badge-emerald">Microsoft Azure</span>
+              </div>
+              <h2 class="h2">Azure Cloud Microservices Orchestrator</h2>
+              <p style="color: #cbd5e1; font-size: var(--fs-sm); line-height: 1.7; margin: 12px 0;">
+                Enterprise cloud-native microservices architecture on Microsoft Azure featuring background task scheduling, API gateway routing, and comprehensive Insomnia/Postman validation suites.
+              </p>
+              
+              <h4 style="font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 8px;">Key Technical Highlights:</h4>
+              <ul style="font-size: var(--fs-sm); color: #94a3b8; display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px;">
+                <li>• Implemented ASP.NET Core &amp; Java microservices with health check probes.</li>
+                <li>• Automated CI/CD containerization and deployment pipelines.</li>
+                <li>• Documented end-to-end API test collections in Postman and Insomnia.</li>
+              </ul>
+
+              <div class="tech-tags">
+                <span class="tech-tag">C#</span>
+                <span class="tech-tag">ASP.NET Core</span>
+                <span class="tech-tag">Microsoft Azure</span>
+                <span class="tech-tag">Java</span>
+                <span class="tech-tag">Postman</span>
+                <span class="tech-tag">Docker</span>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 12px; margin-top: 20px;">
+              <a href="https://github.com/nhlamulo-gemini" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+                <span>Live Project Specs</span>
+              </a>
+              <a href="https://github.com/nhlamulo-gemini" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                </svg>
+                <span>GitHub Repository</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Footer navigation -->
+      <div style="text-align: center; margin-top: 40px; padding: 24px; border-top: 1px solid var(--border-subtle);">
+        <p style="color: var(--text-muted); font-size: var(--fs-sm); margin-bottom: 12px;">
+          Designed &amp; Engineered by Nhlamulo Gemini Hlatywayo • Full-Stack Developer
+        </p>
+        <a href="./index.html" class="btn btn-outline">
+          ← Back to Portfolio Home
+        </a>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Interactive Search and Filter JS for projects.html -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchInput = document.getElementById('projectSearchInput');
+      const cards = document.querySelectorAll('.project-detail-card');
+      const filterBtns = document.querySelectorAll('[data-filter-btn]');
+
+      let currentCategory = 'all';
+
+      const filterCards = () => {
+        const query = (searchInput.value || '').toLowerCase().trim();
+
+        cards.forEach((card) => {
+          const category = (card.getAttribute('data-category') || '').toLowerCase();
+          const keywords = (card.getAttribute('data-keywords') || '').toLowerCase();
+          const text = card.textContent.toLowerCase();
+
+          const matchesCat = (currentCategory === 'all' || category.includes(currentCategory));
+          const matchesQuery = !query || text.includes(query) || keywords.includes(query);
+
+          if (matchesCat && matchesQuery) {
+            card.style.display = 'grid';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      };
+
+      filterBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach((b) => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentCategory = btn.getAttribute('data-filter-btn').toLowerCase().trim();
+          filterCards();
+        });
+      });
+
+      if (searchInput) {
+        searchInput.addEventListener('input', filterCards);
+      }
+    });
+  </script>
+
+</body>
+
+</html>
